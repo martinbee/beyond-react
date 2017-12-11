@@ -1,5 +1,6 @@
 # TODO
 
-- Authentication
-- Clean up init code
-- Remove unneeded routes
+- Login
+- Header
+- Routing
+- Clean up edit workout page
