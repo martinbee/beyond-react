@@ -1,24 +1,33 @@
 import React from 'react';
 import {
-  string,
+  number,
   func,
 } from 'prop-types';
 
-const TrainingMax = ({ value, onChange }) => (
-  <label htmlFor="training-max">
-    <input
-      id="training-max"
-      type="text"
-      value={value}
-      onChange={onChange}
-    />
-    Training Max
-  </label>
-);
+function TrainingMax({ trainingMax, updateWorkout }) {
+  const updateTrainingMax = (event) => {
+    const inputValue = event.target.value;
+    const updatedTrainingMax = parseInt(inputValue, 10);
+
+    updateWorkout('trainingMax', updatedTrainingMax);
+  };
+
+  return (
+    <label htmlFor="training-max">
+      <input
+        id="training-max"
+        type="number"
+        value={trainingMax || ''}
+        onChange={updateTrainingMax}
+      />
+      Training Max
+    </label>
+  );
+}
 
 TrainingMax.propTypes = {
-  value: string.isRequired,
-  onChange: func.isRequired,
+  trainingMax: number.isRequired,
+  updateWorkout: func.isRequired,
 };
 
 export default TrainingMax;

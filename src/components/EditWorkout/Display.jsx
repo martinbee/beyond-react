@@ -5,6 +5,7 @@ import {
   bool,
   arrayOf,
   shape,
+  func,
 } from 'prop-types';
 
 import {
@@ -13,19 +14,27 @@ import {
   MobilityWork,
 } from './FormElements';
 
-const onTrainingMaxChange = (evt) => console.log(evt);
-
 function EditWorkoutDisplay({
   liftType,
   trainingMax,
   mobilityWork,
+  updateWorkout,
 }) {
   return (
     <div>
       <h3>Workout Edit here</h3>
-      <LiftType />
-      <TrainingMax onChange={onTrainingMaxChange} value="123" />
-      <MobilityWork />
+      <LiftType
+        liftType={liftType}
+        updateWorkout={updateWorkout}
+      />
+      <TrainingMax
+        trainingMax={trainingMax}
+        updateWorkout={updateWorkout}
+      />
+      <MobilityWork
+        isChecked={mobilityWork}
+        updateWorkout={updateWorkout}
+      />
     </div>
   );
 }
@@ -43,6 +52,7 @@ EditWorkoutDisplay.propTypes = {
       weight: number,
     })),
   })).isRequired,
+  updateWorkout: func.isRequired,
 };
 
 export default EditWorkoutDisplay;

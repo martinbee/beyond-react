@@ -15,3 +15,7 @@
   - Flow:
     - Edit workout handles checking if it's new or not and manages the workout
       object in state.
+
+- think about numbers and strings, do I store strings or convert to numbers on
+  inputs?? I have NaN right now and that sucks.
+

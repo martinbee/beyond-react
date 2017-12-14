@@ -34,6 +34,15 @@ export default class EditWorkout extends Component {
     }
   }
 
+  updateWorkout = (key, value) => {
+    const updatedWorkout = ({
+      ...this.state.workout,
+      [key]: value,
+    });
+
+    this.setState({ workout: updatedWorkout });
+  }
+
   render() {
     const {
       workout,
@@ -53,6 +62,7 @@ export default class EditWorkout extends Component {
       trainingMax,
       mobilityWork,
       exercises,
+      updateWorkout: this.updateWorkout,
     };
 
     return <Display {...displayProps} />;

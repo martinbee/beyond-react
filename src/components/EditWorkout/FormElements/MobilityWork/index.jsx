@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {
+  bool,
+  func,
+} from 'prop-types';
 
 import Checkbox from '../../../Shared/Checkbox';
-
 
 const id = 'mobility-work';
 const checkboxBaseProps = {
@@ -10,24 +13,21 @@ const checkboxBaseProps = {
   label: 'Mobility Work',
 };
 
-export default class MobilityWork extends Component {
-  state = {
-    isChecked: false,
+function MobilityWork({ isChecked, updateWorkout }) {
+  const updateMobilityWork = () => updateWorkout('mobilityWork', !isChecked);
+
+  const checkboxProps = {
+    checked: isChecked,
+    onChange: updateMobilityWork,
+    ...checkboxBaseProps,
   };
 
-  toggleMobilityWork = () => {
-    // logic to add MobilityWork to workout object
-
-    this.setState(prevState => ({ isChecked: !prevState.isChecked }));
-  }
-
-  render() {
-    const checkboxProps = {
-      checked: this.state.isChecked,
-      onChange: this.toggleMobilityWork,
-      ...checkboxBaseProps,
-    };
-
-    return <Checkbox {...checkboxProps} />;
-  }
+  return <Checkbox {...checkboxProps} />;
 }
+
+MobilityWork.propTypes = {
+  isChecked: bool.isRequired,
+  updateWorkout: func.isRequired,
+};
+
+export default MobilityWork;
