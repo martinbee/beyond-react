@@ -6,20 +6,22 @@ import {
   MobilityWork,
 } from './FormElements';
 
-const WorkoutEdit = ({ data }) => {
+const onTrainingMaxChange = (evt) => console.log(evt);
+
+const WorkoutEditDisplay = ({ data }) => {
   console.log(data);
 
   return (
     <div>
       <h3>Workout Edit here</h3>
       <LiftType />
-      <TrainingMax />
+      <TrainingMax onChange={onTrainingMaxChange} value="123" />
       <MobilityWork />
     </div>
   );
 };
 
-export default WorkoutEdit;
+export default WorkoutEditDisplay;
 
 // eventually have a container that handles the route params, maintains the
 // workout object we're updating/building, and posts changes on save
