@@ -13,6 +13,7 @@ scenes, and axios for api calls.
 - [API](./docs/api.md)
 - [5/3/1 basic rules](./docs/rules.md)
 - [TODO](./docs/todo.md)
+- [Components](./docs/components.md)
 
 ## Links
 - [Overview of basic 5/3/1](https://www.t-nation.com/workouts/531-how-to-build-pure-strength)
