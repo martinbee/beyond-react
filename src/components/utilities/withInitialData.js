@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import getDisplayName from 'recompose/getDisplayName';
-import axios from 'axios';
-
-// Add to config file or constants
-const BASE_URL = 'http://localhost:3000';
+import {
+  get,
+} from './httpHandlers';
 
 // Fix component name such that it says WrappedComponent with initial data
 export default function withInitialData(WrappedComponent, dataUrl) {
@@ -15,9 +14,10 @@ export default function withInitialData(WrappedComponent, dataUrl) {
     };
 
     componentDidMount() {
-      axios.get(BASE_URL + dataUrl)
-        .then(({ data }) => this.setState({ data }))
-        .catch(error => console.log(error));
+      const successCallback = ({ data }) => this.setState({ data });
+      const errorCallback = (error => console.log(error));
+
+      get(dataUrl, successCallback, errorCallback);
     }
 
     render() {

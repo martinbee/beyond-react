@@ -12,7 +12,7 @@ const TrainingMax = ({ value, onChange }) => (
       value={value}
       onChange={onChange}
     />
-    TrainingMax
+    Training Max
   </label>
 );
 

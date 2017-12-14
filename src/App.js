@@ -1,11 +1,11 @@
 import React from 'react';
 import Header from './components/Header';
-import WorkoutEdit from './components/WorkoutEdit';
+import EditWorkout from './components/EditWorkout';
 
 const App = () => (
   <div>
     <Header />
-    <WorkoutEdit />
+    <EditWorkout />
   </div>
 );
 

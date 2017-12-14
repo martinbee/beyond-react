@@ -7,7 +7,8 @@ module.exports = {
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/require-default-props": 0,
-    "spaced-comment": 0
+    "spaced-comment": 0,
+    "no-console": 0
   },
   "plugins": [
     "react",
