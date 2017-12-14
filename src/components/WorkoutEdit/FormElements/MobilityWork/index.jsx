@@ -3,6 +3,13 @@ import React, { Component } from 'react';
 import Checkbox from '../../../Shared/Checkbox';
 
 
+const id = 'mobility-work';
+const checkboxBaseProps = {
+  id,
+  htmlFor: id,
+  label: 'Mobility Work',
+};
+
 export default class MobilityWork extends Component {
   state = {
     isChecked: false,
@@ -15,14 +22,10 @@ export default class MobilityWork extends Component {
   }
 
   render() {
-    const id = 'mobility-work';
-
     const checkboxProps = {
-      id,
-      htmlFor: id,
       checked: this.state.isChecked,
-      label: 'Mobility Work',
       onChange: this.toggleMobilityWork,
+      ...checkboxBaseProps,
     };
 
     return <Checkbox {...checkboxProps} />;
