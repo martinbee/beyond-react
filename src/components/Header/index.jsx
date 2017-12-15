@@ -1,5 +1,12 @@
 import React from 'react';
+import AppBar from 'material-ui/AppBar';
+import Popover from 'material-ui/Popover';
 
-const Header = () => <h1>Beyond 5/3/1</h1>;
+const Header = () => (
+  <div>
+    <AppBar />
+    <Popover />
+  </div>
+);
 
 export default Header;
