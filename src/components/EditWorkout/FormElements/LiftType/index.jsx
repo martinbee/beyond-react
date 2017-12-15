@@ -1,14 +1,51 @@
 import React from 'react';
+import {
+  string,
+  func,
+} from 'prop-types';
 
-function LiftType() {
+const options = [
+  {
+    displayName: 'Overhead Press',
+    liftType: 'press',
+  },
+  {
+    displayName: 'Deadlift',
+    liftType: 'deadlift',
+  },
+  {
+    displayName: 'Bench Press',
+    liftType: 'bench',
+  },
+  {
+    displayName: 'Squats',
+    liftType: 'squats',
+  },
+];
+
+function LiftType({ currentLiftType, updateWorkout }) {
+  const updateLiftType = (evt) => {
+    const newLiftType = evt.target.value;
+
+    updateWorkout('liftType', newLiftType);
+  };
+
+  const renderOptions = () => options.map(({ displayName, liftType }) => (
+    <option key={liftType} value={liftType}>
+      {displayName}
+    </option>
+  ));
+
   return (
-    <select onChange={(evt) => console.log(evt.target.value)}>
-      <option value="volvo">Volvo</option>
-      <option value="saab">Saab</option>
-      <option value="mercedes">Mercedes</option>
-      <option value="audi">Audi</option>
+    <select value={currentLiftType} onChange={updateLiftType}>
+      {renderOptions()}
     </select>
   );
 }
+
+LiftType.propTypes = {
+  currentLiftType: string.isRequired,
+  updateWorkout: func.isRequired,
+};
 
 export default LiftType;

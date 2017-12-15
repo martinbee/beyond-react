@@ -24,7 +24,7 @@ function EditWorkoutDisplay({
     <div>
       <h3>Workout Edit here</h3>
       <LiftType
-        liftType={liftType}
+        currentLiftType={liftType}
         updateWorkout={updateWorkout}
       />
       <TrainingMax
