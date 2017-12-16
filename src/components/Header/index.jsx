@@ -62,11 +62,11 @@ export default class Header extends Component {
   }
 
   renderMenu() {
+    // Replace with route objects later
     return (
       <Menu>
-        <MenuItem primaryText="Refresh" />
-        <MenuItem primaryText="Help &amp; feedback" />
-        <MenuItem primaryText="Settings" />
+        <MenuItem primaryText="Profile" />
+        <MenuItem primaryText="Workout History" />
         <MenuItem primaryText="Sign out" />
       </Menu>
     );
