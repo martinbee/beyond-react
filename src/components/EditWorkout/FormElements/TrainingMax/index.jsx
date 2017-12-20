@@ -3,7 +3,13 @@ import {
   number,
   func,
 } from 'prop-types';
+import TextField from 'material-ui/TextField';
 
+ <TextField
+      hintText="Hint Text"
+      floatingLabelText="Fixed Floating Label Text"
+      floatingLabelFixed={true}
+    />
 function TrainingMax({ trainingMax, updateWorkout }) {
   const updateTrainingMax = (event) => {
     const inputValue = event.target.value;
@@ -13,15 +19,12 @@ function TrainingMax({ trainingMax, updateWorkout }) {
   };
 
   return (
-    <label htmlFor="training-max">
-      <input
-        id="training-max"
-        type="number"
-        value={trainingMax || ''}
-        onChange={updateTrainingMax}
-      />
-      Training Max
-    </label>
+    <TextField
+      id="training-max"
+      value={trainingMax || ''}
+      onChange={updateTrainingMax}
+      floatingLabelText="Training Max"
+    />
   );
 }
 
