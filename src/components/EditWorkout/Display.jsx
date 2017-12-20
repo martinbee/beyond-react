@@ -21,20 +21,26 @@ function EditWorkoutDisplay({
   updateWorkout,
 }) {
   return (
-    <div>
-      <h3>Workout Edit here</h3>
-      <LiftType
-        currentLiftType={liftType}
-        updateWorkout={updateWorkout}
-      />
-      <TrainingMax
-        trainingMax={trainingMax}
-        updateWorkout={updateWorkout}
-      />
-      <MobilityWork
-        isChecked={mobilityWork}
-        updateWorkout={updateWorkout}
-      />
+    <div className="container">
+      <h3>Edit Workout</h3>
+      <div>
+        <LiftType
+          currentLiftType={liftType}
+          updateWorkout={updateWorkout}
+        />
+      </div>
+      <div>
+        <TrainingMax
+          trainingMax={trainingMax}
+          updateWorkout={updateWorkout}
+        />
+      </div>
+      <div>
+        <MobilityWork
+          isChecked={mobilityWork}
+          updateWorkout={updateWorkout}
+        />
+      </div>
     </div>
   );
 }

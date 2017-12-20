@@ -3,6 +3,8 @@ import {
   string,
   func,
 } from 'prop-types';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 
 const options = [
   {
@@ -24,22 +26,21 @@ const options = [
 ];
 
 function LiftType({ currentLiftType, updateWorkout }) {
-  const updateLiftType = (evt) => {
-    const newLiftType = evt.target.value;
-
-    updateWorkout('liftType', newLiftType);
-  };
+  const updateLiftType = (evt, index, value) => updateWorkout('liftType', value);
 
   const renderOptions = () => options.map(({ displayName, liftType }) => (
-    <option key={liftType} value={liftType}>
-      {displayName}
-    </option>
+    <MenuItem key={liftType} value={liftType} primaryText={displayName} />
   ));
 
   return (
-    <select value={currentLiftType} onChange={updateLiftType}>
+    <SelectField
+      id="lift-type"
+      floatingLabelText="Lift Type"
+      value={currentLiftType}
+      onChange={updateLiftType}
+    >
       {renderOptions()}
-    </select>
+    </SelectField>
   );
 }
 
