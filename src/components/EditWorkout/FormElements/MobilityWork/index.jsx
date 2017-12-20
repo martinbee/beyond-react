@@ -3,13 +3,10 @@ import {
   bool,
   func,
 } from 'prop-types';
+import Checkbox from 'material-ui/Checkbox';
 
-import Checkbox from '../../../Shared/Checkbox';
-
-const id = 'mobility-work';
 const checkboxBaseProps = {
-  id,
-  htmlFor: id,
+  id: 'mobility-work',
   label: 'Mobility Work',
 };
 
@@ -18,7 +15,7 @@ function MobilityWork({ isChecked, updateWorkout }) {
 
   const checkboxProps = {
     checked: isChecked,
-    onChange: updateMobilityWork,
+    onCheck: updateMobilityWork,
     ...checkboxBaseProps,
   };
 
