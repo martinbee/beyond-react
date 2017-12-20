@@ -5,11 +5,6 @@ import {
 } from 'prop-types';
 import TextField from 'material-ui/TextField';
 
- <TextField
-      hintText="Hint Text"
-      floatingLabelText="Fixed Floating Label Text"
-      floatingLabelFixed={true}
-    />
 function TrainingMax({ trainingMax, updateWorkout }) {
   const updateTrainingMax = (event) => {
     const inputValue = event.target.value;
