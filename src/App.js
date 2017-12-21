@@ -1,16 +1,10 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { renderRoutes } from 'react-router-config';
 
-import Header from './components/Header';
-import EditWorkout from './components/EditWorkout';
-
-
-const App = () => (
+const App = ({ route }) => (
   <MuiThemeProvider>
-    <div>
-      <Header />
-      <EditWorkout />
-    </div>
+    {renderRoutes(route.routes)}
   </MuiThemeProvider>
 );
 

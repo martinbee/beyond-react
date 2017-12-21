@@ -8,7 +8,7 @@ import Loading from '../Shared/Loading';
 import Display from './Display';
 
 // hardcode for now. Once routing is in, remove
-const dataUrl = '/users/5a33d371ae23c763fcc76e19/workouts/5a33d371ae23c763fcc76e1b';
+const dataUrl = '/users/5a352ec8cd92f013eaae79f0o/workouts/5a352ec8cd92f013eaae79f2';
 
 // this needs to actually be getNewWorkout which should look at user and create
 // an appropriate workout

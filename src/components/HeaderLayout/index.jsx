@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { renderRoutes } from 'react-router-config';
+
 import AppBar from 'material-ui/AppBar';
 import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
@@ -15,7 +17,7 @@ const popoverDefaultProps = {
   },
 };
 
-export default class Header extends Component {
+export default class HeaderLayout extends Component {
   state = {
     isPopoverOpen: false,
     popoverAnchorEl: null,
@@ -77,8 +79,12 @@ export default class Header extends Component {
       <div>
         {this.renderAppBar()}
         {this.renderPopover()}
+        {renderRoutes(this.props.route.routes)}
       </div>
     );
   }
 }
 
+HeaderLayout.propTypes = {
+
+};
