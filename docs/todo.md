@@ -2,7 +2,7 @@
 
 - Login
 - Header
-- Routing
+- Fix Routing
 - Clean up edit workout page
 - Decide between local state and redux
 

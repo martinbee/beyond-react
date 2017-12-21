@@ -1,42 +1,45 @@
-import App from './App';
+import Auth from './components/Auth';
 import HeaderLayout from './components/HeaderLayout';
 import Home from './components/Home';
-import UpdateWorkout from './components/UpdateWorkout';
 import NewWorkout from './components/NewWorkout';
+import UpdateWorkout from './components/UpdateWorkout';
 import Profile from './components/Profile';
-import Auth from './components/Auth';
+import NotFound from './components/NotFound';
 
 export default [
   {
-    component: App,
+    path: '/auth',
+    component: Auth,
+    exact: true,
+  },
+  {
+    path: '/user',
+    component: HeaderLayout,
     routes: [
       {
-        path: '/auth',
-        component: Auth,
+        path: '/user/:userId/workouts',
+        component: Home,
+        exact: true,
       },
       {
-        path: '/',
-        component: HeaderLayout,
-        routes: [
-          {
-            exact: true,
-            path: '/user/:userId/workouts',
-            component: Home,
-          },
-          {
-            path: '/user/:userid/workouts/new',
-            component: NewWorkout,
-          },
-          {
-            path: '/user/:userId/workouts/:workoutId',
-            component: UpdateWorkout,
-          },
-          {
-            path: '/user/:userId',
-            component: Profile,
-          },
-        ],
+        path: '/user/:userid/workouts/new',
+        component: NewWorkout,
+        exact: true,
+      },
+      {
+        path: '/user/:userId/workouts/:workoutId',
+        component: UpdateWorkout,
+        exact: true,
+      },
+      {
+        path: '/user/:userId',
+        component: Profile,
+        exact: true,
       },
     ],
+  },
+  {
+    component: NotFound,
+    name: 'Not Found',
   },
 ];
