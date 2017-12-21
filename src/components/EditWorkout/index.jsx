@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { isEmpty } from 'lodash';
+import {
+  bool,
+  string,
+} from 'prop-types';
 
 import {
   get,
@@ -7,25 +11,31 @@ import {
 import Loading from '../Shared/Loading';
 import Display from './Display';
 
-// hardcode for now. Once routing is in, remove
-const dataUrl = '/users/5a352ec8cd92f013eaae79f0o/workouts/5a352ec8cd92f013eaae79f2';
-
 // this needs to actually be getNewWorkout which should look at user and create
 // an appropriate workout
 const newWorkout = { trainingMax: 1 };
 
-const isUpdate = true;
-
+// weird users url issue
 export default class EditWorkout extends Component {
+  static propTypes = {
+    isUpdate: bool,
+    dataUrl: string,
+  };
+
   state = {
     workout: null,
-  }
+  };
 
   componentWillMount() {
-    if (!isUpdate) this.setState({ workout: newWorkout });
+    if (!this.props.isUpdate) this.setState({ workout: newWorkout });
   }
 
   componentDidMount() {
+    const {
+      isUpdate,
+      dataUrl,
+    } = this.props;
+
     if (isUpdate) {
       const successCallback = ({ data }) => this.setState({ workout: data });
       const errorCallback = error => console.log(error);

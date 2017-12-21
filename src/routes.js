@@ -13,26 +13,26 @@ export default [
     exact: true,
   },
   {
-    path: '/user',
+    path: '/users',
     component: HeaderLayout,
     routes: [
       {
-        path: '/user/:userId/workouts',
+        path: '/users/:userId/workouts',
         component: Home,
         exact: true,
       },
       {
-        path: '/user/:userid/workouts/new',
+        path: '/users/:userid/workouts/new',
         component: NewWorkout,
         exact: true,
       },
       {
-        path: '/user/:userId/workouts/:workoutId',
+        path: '/users/:userId/workouts/:workoutId',
         component: UpdateWorkout,
         exact: true,
       },
       {
-        path: '/user/:userId',
+        path: '/users/:userId',
         component: Profile,
         exact: true,
       },
