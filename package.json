@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
+    "classnames": "^2.2.5",
     "gh-pages": "^1.1.0",
     "lodash": "^4.17.4",
     "material-ui": "^0.20.0",

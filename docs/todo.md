@@ -5,6 +5,9 @@
 - Fix Routing
 - Clean up edit workout page
 - Decide between local state and redux
+- Think about adding a snackbar for errors
+- Think about how to handle 500 errors
+- How to handle null data fetch
 
 - REDUX
   - Flow:

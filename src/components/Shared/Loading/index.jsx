@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Message from '../Message';
+
 const loadingMessages = [
   'Pumping iron...',
   'Brewing a data shake',
@@ -12,9 +14,7 @@ export default function Loading() {
   const getRandomNumber = () => Math.floor(Math.random() * 5);
   const getRandomLoadingMessage = () => loadingMessages[getRandomNumber()];
 
-  return (
-    <div>{getRandomLoadingMessage()}</div>
-  );
+  return <Message content={getRandomLoadingMessage()} />;
 }
 
 // add gif here of weight lifting

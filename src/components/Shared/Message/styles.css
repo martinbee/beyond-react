@@ -1,0 +1,8 @@
+.app-message {
+  text-align: center;
+  margin: 30px;
+}
+
+.app-message.error {
+  color: red;
+}

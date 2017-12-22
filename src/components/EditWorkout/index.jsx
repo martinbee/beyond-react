@@ -8,6 +8,8 @@ import {
 import {
   get,
 } from '../utilities/httpHandlers';
+import Message from '../Shared/Message';
+import ErrorHandler from '../Shared/ErrorHandler';
 import Loading from '../Shared/Loading';
 import Display from './Display';
 
@@ -24,6 +26,8 @@ export default class EditWorkout extends Component {
 
   state = {
     workout: null,
+    error: null,
+    dataFetched: false,
   };
 
   componentWillMount() {
@@ -37,8 +41,11 @@ export default class EditWorkout extends Component {
     } = this.props;
 
     if (isUpdate) {
-      const successCallback = ({ data }) => this.setState({ workout: data });
-      const errorCallback = error => console.log(error);
+      const successCallback = ({ data }) => {
+        this.setState({ workout: data, dataFetched: true });
+      };
+
+      const errorCallback = error => this.setState({ error });
 
       get(dataUrl, successCallback, errorCallback);
     }
@@ -56,9 +63,15 @@ export default class EditWorkout extends Component {
   render() {
     const {
       workout,
+      error,
+      dataFetched,
     } = this.state;
 
-    if (isEmpty(workout)) return <Loading />;
+    const noWorkout = isEmpty(workout);
+
+    if (error) return <ErrorHandler error={error} />;
+    if (dataFetched && noWorkout) return <Message content={'No workout data found.'} />;
+    if (noWorkout) return <Loading />;
 
     const {
       liftType,
