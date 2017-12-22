@@ -19,10 +19,19 @@ function EditWorkoutDisplay({
   trainingMax,
   mobilityWork,
   updateWorkout,
+  updatedAt,
 }) {
+  const renderUpdatedAt = () => {
+    const updatedAtDate = updatedAt.toLocaleDateString();
+    const updatedAtTime = updatedAt.toLocaleTimeString();
+
+    return <p>Last updated {updatedAtDate} at {updatedAtTime}</p>;
+  };
+
   return (
     <div className="container">
       <h3>Edit Workout</h3>
+      { updatedAt && renderUpdatedAt() }
       <div>
         <LiftType
           currentLiftType={liftType}
@@ -46,6 +55,7 @@ function EditWorkoutDisplay({
 }
 
 EditWorkoutDisplay.propTypes = {
+  updatedAt: shape({}).isRequired,
   liftType: string.isRequired,
   trainingMax: number.isRequired,
   mobilityWork: bool.isRequired,

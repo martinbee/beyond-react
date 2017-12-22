@@ -78,6 +78,7 @@ export default class EditWorkout extends Component {
       trainingMax,
       mobilityWork,
       exercises,
+      updatedAt,
     } = workout;
 
     const displayProps = {
@@ -85,6 +86,7 @@ export default class EditWorkout extends Component {
       trainingMax,
       mobilityWork,
       exercises,
+      updatedAt: new Date(updatedAt),
       updateWorkout: this.updateWorkout,
     };
 
