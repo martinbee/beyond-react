@@ -81,21 +81,21 @@ export default class HeaderLayout extends Component {
     );
   }
 
-  routeTo = path => this.history.push(path);
-
-  renderMenuItems() {
-    return dropdownMenuItemContent.map(menuItem => (
-      <MenuItem
-        onClick={event => console.log(event.target)}
-        {...menuItem}
-      />
-    ));
-  }
+  routeTo = path => this.props.history.push(path);
 
   renderMenu() {
+    const routeOnClick = (event, menuItem) => {
+      event.preventDefault();
+      const path = menuItem.props.value;
+
+      this.routeTo(path);
+    };
+
     return (
-      <Menu>
-        {this.renderMenuItems()}
+      <Menu
+        onItemClick={routeOnClick}
+      >
+        {dropdownMenuItemContent.map(menuItem => <MenuItem {...menuItem} />)}
       </Menu>
     );
   }
