@@ -6,6 +6,24 @@ import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 
+const dropdownMenuItemContent = [
+  {
+    primaryText: 'Home',
+    value: 'home',
+    path: 'home',
+  },
+  {
+    primaryText: 'Profile',
+    value: 'profile',
+    path: 'profile',
+  },
+  {
+    primaryText: 'Sign Out',
+    value: 'signOut',
+    path: 'signOut',
+  },
+];
+
 const popoverDefaultProps = {
   anchorOrigin: {
     horizontal: 'left',
@@ -63,13 +81,21 @@ export default class HeaderLayout extends Component {
     );
   }
 
+  routeTo = path => this.history.push(path);
+
+  renderMenuItems() {
+    return dropdownMenuItemContent.map(menuItem => (
+      <MenuItem
+        onClick={event => console.log(event.target)}
+        {...menuItem}
+      />
+    ));
+  }
+
   renderMenu() {
-    // Replace with route objects later
     return (
       <Menu>
-        <MenuItem primaryText="Profile" />
-        <MenuItem primaryText="Workout History" />
-        <MenuItem primaryText="Sign out" />
+        {this.renderMenuItems()}
       </Menu>
     );
   }
