@@ -12,12 +12,14 @@ import {
   LiftType,
   TrainingMax,
   MobilityWork,
+  Exercises,
 } from './FormElements';
 
 function EditWorkoutDisplay({
   liftType,
   trainingMax,
   mobilityWork,
+  exercises,
   updateWorkout,
   updatedAt,
 }) {
@@ -28,28 +30,49 @@ function EditWorkoutDisplay({
     return <p>Last updated {updatedAtDate} at {updatedAtTime}</p>;
   };
 
+  const formElements = [
+    {
+      component: LiftType,
+      key: 'LiftType',
+      props: {
+        currentLiftType: liftType,
+      },
+    },
+    {
+      component: TrainingMax,
+      key: 'TrainingMax',
+      props: {
+        trainingMax,
+      },
+    },
+    {
+      component: MobilityWork,
+      key: 'MobilityWork',
+      props: {
+        isChecked: mobilityWork,
+      },
+    },
+    {
+      component: Exercises,
+      key: 'Exercises',
+      props: {
+        exercises,
+      },
+    },
+  ];
+
+  const renderWorkouts = () => formElements
+    .map(({ key, component, props }) => (
+      <div key={key}>
+        {component({ updateWorkout, ...props })}
+      </div>
+    ));
+
   return (
     <div className="container">
       <h3>Edit Workout</h3>
       { updatedAt && renderUpdatedAt() }
-      <div>
-        <LiftType
-          currentLiftType={liftType}
-          updateWorkout={updateWorkout}
-        />
-      </div>
-      <div>
-        <TrainingMax
-          trainingMax={trainingMax}
-          updateWorkout={updateWorkout}
-        />
-      </div>
-      <div>
-        <MobilityWork
-          isChecked={mobilityWork}
-          updateWorkout={updateWorkout}
-        />
-      </div>
+      { renderWorkouts() }
     </div>
   );
 }
