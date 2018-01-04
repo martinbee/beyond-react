@@ -34,7 +34,7 @@ const options = [
 ];
 
 function Type({ currentType, updateExercise }) {
-  const updateType = (evt, index, value) => updateExercise('Type', value);
+  const updateType = (evt, index, value) => updateExercise({ type: value });
 
   const renderOptions = () => options.map(option => (
     <MenuItem key={option.value} {...option} />

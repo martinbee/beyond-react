@@ -15,13 +15,23 @@ function Exercises({ exercises, updateWorkout }) {
     updateWorkout('exercises', updatedExercises);
   };
 
+  const updateExercise = (indexToUpdate, updates) => {
+    const updatedExercises = exercises.map((exercise, index) => {
+      if (index === indexToUpdate) return { ...exercise, ...updates };
+
+      return exercise;
+    });
+
+    updateWorkout('exercises', updatedExercises);
+  };
+
   const renderExercises = () => exercises
     .map((exercise, index) => {
       const exerciseProps = {
         key: index,
         exercise,
         removeExercise: () => removeExercise(index),
-        updateExercise: () => console.log('update'),
+        updateExercise: updates => updateExercise(index, updates),
       };
 
       return <EditExercise {...exerciseProps} />;
