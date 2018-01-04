@@ -83,7 +83,7 @@ EditWorkoutDisplay.propTypes = {
   trainingMax: number.isRequired,
   mobilityWork: bool.isRequired,
   exercises: arrayOf(shape({
-    type: string.isRequired,
+    type: string,
     subType: string,
     notes: string,
     sets: arrayOf(shape({

@@ -8,17 +8,35 @@ import EditExercise from './EditExercise';
 // EditExercise needs to be composed of a dropdown for type, text field for
 // subtype, text area for notes, EditSets much like EditWorkout that handles
 // reps and weight and more can be added
-function Exercises({ exercises }) {
+function Exercises({ exercises, updateWorkout }) {
+  const removeExercise = (indexToRemove) => {
+    const updatedExercises = exercises.filter((exercise, index) => index !== indexToRemove);
+
+    updateWorkout('exercises', updatedExercises);
+  };
+
   const renderExercises = () => exercises
-    .map(exercise => <EditExercise exercise={exercise} />);
+    .map((exercise, index) => {
+      const exerciseProps = {
+        key: index,
+        exercise,
+        removeExercise: () => removeExercise(index),
+        updateExercise: () => console.log('update'),
+      };
+
+      return <EditExercise {...exerciseProps} />;
+    });
+
+  const addExercise = () => updateWorkout('exercises', [...exercises, {}]);
 
   return (
     <div>
       <p>Exercises</p>
-      <button onClick={() => console.log('add')}>Add exercise</button>
+      <button onClick={addExercise}>Add exercise</button>
       {renderExercises()}
     </div>
   );
 }
 
 export default Exercises;
+
